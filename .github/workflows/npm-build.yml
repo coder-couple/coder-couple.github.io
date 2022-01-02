@@ -1,0 +1,19 @@
+name: npm build
+
+on:
+  workflow_dispatch:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup
+        run: npm install
+
+      - name: Build
+        run: npm run build
